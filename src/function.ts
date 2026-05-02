@@ -22,3 +22,9 @@ const user = {
 };
 
 user.addBalance(500); // 1500
+
+// Callback function
+
+const arr: number[] = [1, 2, 3, 4, 5];
+
+const sqrArr = arr.map((num: number): number => num * num);

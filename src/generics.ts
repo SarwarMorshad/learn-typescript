@@ -20,7 +20,8 @@ type genericTuple<X, Y> = [X, Y];
 const genericCoordinates: genericTuple<number, number> = [10, 20];
 
 // generic object type
-const userList: genericArray<{ name: string; age: number }> = [
+type user = { name: string; age: number };
+const userList: genericArray<user> = [
   {
     name: "Alice",
     age: 30,
@@ -30,3 +31,60 @@ const userList: genericArray<{ name: string; age: number }> = [
     age: 25,
   },
 ];
+
+// generics with Interface
+interface Developer<T, X = null> {
+  name: string;
+  salary: number;
+  devices: {
+    brand: string;
+    model: string;
+    releaseYear: string;
+  };
+  smartWatch: T;
+  Bike?: X;
+}
+
+interface poorSmartWatch {
+  brand: string;
+  model: string;
+  releaseYear: string;
+}
+const poorDeveloper: Developer<poorSmartWatch, { brand: string; model: string }> = {
+  name: "Mr Poor",
+  salary: 50000,
+  devices: {
+    brand: "Samsung",
+    model: "Galaxy S21",
+    releaseYear: "2021",
+  },
+  smartWatch: {
+    brand: "Samsung",
+    model: "Galaxy Watch 4",
+    releaseYear: "2021",
+  },
+  Bike: {
+    brand: "Yamaha",
+    model: "R15",
+  },
+};
+
+interface richSmartWatch {
+  brand: string;
+  model: string;
+  waterResistance: boolean;
+}
+const richDeveloper: Developer<richSmartWatch> = {
+  name: "Mr Rich",
+  salary: 150000,
+  devices: {
+    brand: "Apple",
+    model: "iPhone 13 Pro",
+    releaseYear: "2021",
+  },
+  smartWatch: {
+    brand: "Apple",
+    model: "Apple Watch Series 9",
+    waterResistance: true,
+  },
+};

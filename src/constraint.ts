@@ -1,3 +1,4 @@
+// Constraints
 type Student = {
   name: string;
   id: number;
@@ -23,3 +24,14 @@ const student2 = addStudentToCourse({
   grade: "B",
   hasCar: true,
 });
+
+// key of constraint with generic
+// keyof: type operator
+type RichPeopleVehicle = {
+  car: string;
+  bike: string;
+  boat: string;
+};
+
+type myVehicle1 = "car" | "bike" | "boat";
+type myVehicle2 = keyof RichPeopleVehicle;

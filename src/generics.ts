@@ -88,3 +88,26 @@ const richDeveloper: Developer<richSmartWatch> = {
     waterResistance: true,
   },
 };
+
+// generic function
+const createArrayWithString = (value: string) => [value];
+const createArrayWithNumber = (value: number) => [value];
+const createArrayWithObject = (value: { id: number; name: string }) => [value];
+const arrString = createArrayWithString("Hello");
+const arrNumber = createArrayWithNumber(42);
+const arrObject = createArrayWithObject({ id: 1, name: "Alice" });
+
+// generic function with type parameter
+const createGenericArray = <T>(value: T): T[] => [value];
+
+const arrStringGeneric = createGenericArray("Hello");
+const arrNumberGeneric = createGenericArray(42);
+const arrObjectGeneric = createGenericArray({ id: 1, name: "Alice" });
+
+// tuple
+const createArrayWithTuple = (value1: string, value2: number) => [value1, value2];
+
+const genericTuple = <X, Y>(value1: X, value2: Y) => [value1, value2];
+
+const resultTuple = genericTuple("Hello", 42);
+const resultTuple2 = genericTuple({ id: 1, name: "Alice" }, [1, 2, 3]);

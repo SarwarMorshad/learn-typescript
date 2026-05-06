@@ -35,7 +35,6 @@ class Shape {
     return 0;
   }
 }
-
 class Circle extends Shape {
   radius: number;
 
@@ -48,7 +47,6 @@ class Circle extends Shape {
     return Math.PI * this.radius * this.radius;
   }
 }
-
 class Rectangle extends Shape {
   width: number;
   height: number;
